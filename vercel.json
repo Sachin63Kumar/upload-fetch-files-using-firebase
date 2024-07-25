@@ -1,9 +1,10 @@
 {
     "version": 2,
     "functions": {
-        "api/**/*.js": {
+      "api/*.js": {
+        "runtime": "nodejs16.x",
         "maxDuration": 10
-        }
+      }
     },
     "builds": [
       {
@@ -14,7 +15,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "server.js"
+        "dest": "/server.js"
       }
     ]
   }
