@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const rateLimiter = require("./middlewares/rateLimit");
 const assignmentRoutes = require("./routes/assignmentRoutes");
 
 dotenv.config();
@@ -9,6 +10,7 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(rateLimiter);
 app.use("/api/assignments", assignmentRoutes);
 
 mongoose

@@ -6,7 +6,10 @@ const Assignment = require("../models/Assignment");
 const bucket = require("../config/firebase");
 
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: { fileSize: 1 * 1024 * 1024 }, // 1 MB file size limit
+});
 
 router.post("/create", upload.single("file"), async (req, res) => {
   try {
